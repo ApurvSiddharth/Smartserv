@@ -3,10 +3,26 @@
     <title>Task 1</title>
 </head>
 <script>
-    const obj = JSON.parse('https://s3.amazonaws.com/open-to-cors/assignment.json');
-    document.getElementById("demo").innerHTML = obj.name;
+    var url='https://s3.amazonaws.com/open-to-cors/assignment.json'
+    var tab="<table border=1 align=center><tr><th>Title</th><th>Price</th></tr>"
+    fetch(url).then(res=>res.json().then(data=>{
+        console.log(data.products);
+        var keys=Object.keys(data.products)
+        keys=keys.sort()
+        keys.forEach((e) => {
+
+            tab+="<tr>";
+            tab+="<td>"+data.products[e].title+"</td>";
+            tab+="<td>"+data.products[e].price+"</td>";
+            tab+="</tr>";
+
+        });
+        tab+="</table>";
+        document.getElementById("table").innerHTML=tab;
+        console.log(tab);
+    }));   
 </script>
 <body>
-<p id="demo"></p>
+<p id="table"></p>
 </body>
 </html>
