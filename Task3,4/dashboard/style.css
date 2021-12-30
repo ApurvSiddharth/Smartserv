@@ -1,0 +1,30 @@
+.chart1{
+    width: 45%; 
+    float: left;
+}
+
+.chart2{
+    width: 45%;
+    float: right;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 250px;
+    height: 120px;
+    margin: auto;
+    text-align: center;
+    border-left: 10px solid #4caf50;
+  }
+
+.column {
+    float: left;
+    width: 23%;
+    padding: 0 10px;
+  }
+.row {margin: 0 -5px;}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
