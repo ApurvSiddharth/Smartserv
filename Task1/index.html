@@ -2,24 +2,36 @@
 <head>
     <title>Task 1</title>
 </head>
+<style>
+  table {
+  border-collapse: collapse;
+}
+</style>
 <script>
     var url='https://s3.amazonaws.com/open-to-cors/assignment.json'
     var tab="<table border=1 align=center><tr><th>Title</th><th>Price</th></tr>"
-    fetch(url).then(res=>res.json().then(data=>{
-        console.log(data.products);
-        var keys=Object.keys(data.products)
-        keys=keys.sort()
-        keys.forEach((e) => {
 
+        fetch(url).then(res=>res.json().then(data=>{
+        var keys=Object.keys(data.products);
+        var obj=[];
+        keys.forEach((e) => {
+            obj.push([data.products[e].popularity,data.products[e].title,data.products[e].price]);
+        });
+        obj.sort(function(a,b){
+            return b[0]-a[0];
+        })
+
+        keys=Object.keys(obj)
+        keys.forEach((e) => {
             tab+="<tr>";
-            tab+="<td>"+data.products[e].title+"</td>";
-            tab+="<td>"+data.products[e].price+"</td>";
+            tab+="<td>"+obj[e][1]+"</td>";
+            tab+="<td>"+obj[e][2]+"</td>";
             tab+="</tr>";
 
         });
         tab+="</table>";
         document.getElementById("table").innerHTML=tab;
-        console.log(tab);
+
     }));   
 </script>
 <body>

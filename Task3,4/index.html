@@ -4,20 +4,20 @@
 <title>Login Page</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
+<script type="text/javascript" src="validation.js"></script>
 <body>
 <div class="login-box" align="center">
 <img src="smartserv.png" width="100%" >
-<form name="Form1" method="post" action="A_login.php">
+<form name="Form1" method="post" action="dashboard.html" onsubmit="return validateForm()">
 <div class="textbox">
-<input type="text" placeholder="Username" name="Username" required>
+<input type="text" placeholder="Username" name="email">
 </div>
 
 <div class="textbox">
-<input type="password" placeholder="Password" name="pass" required>
+<input type="password" placeholder="Password" name="password">
 </div>
-<button type="submit" class="btn">Login</button><br>
-<a href="">Forgot your password?</a>
+<input type="submit" class="btn" value="Login"></input><br>
+<a href="mailto:support@smartserv.io?Subject=Forgot Password">Forgot your password?</a>
 </form>
 </div>
 </body></html>
